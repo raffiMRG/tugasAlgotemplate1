@@ -1,0 +1,48 @@
+.kotak{
+    width: 650px;
+    height: 480px;
+    background-image: url(back.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+h1{
+    font-family: Lato;
+}
+
+.outlinebox{
+    width: 600px;
+    height: 350px;
+    box-shadow: 0 0 0 5px rgb(20, 20, 24);
+    border-radius: 15px;
+    position: absolute;
+    top: 61%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.foto{
+    width: 160px;
+    height: 160px;
+    border-radius: 80px;
+    /* box-shadow: 0 0 0 5px blue; */
+    /* background-color: blue; */
+    background-image: url(jaka.png);
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.outlinebox P:first-of-type{
+    margin-top: 100px;
+
+}
+
+.outlinebox P{
+    font-size: 20px;
+    font-family: Lato;
+    font-weight: 700;
+}

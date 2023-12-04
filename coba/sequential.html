@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sequential Search Table</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+    table {
+      width: 60%;
+      border-collapse: collapse;
+      margin: 20px auto;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+    button {
+      font-size: 16px;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Sequential Search Table</h2>
+
+  <label for="searchInput">Search:</label>
+  <input type="text" id="searchInput">
+  <button onclick="searchTable()">Search</button>
+
+  <table id="myTable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>John Doe</td>
+        <td>85</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Jane Smith</td>
+        <td>72</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Bob Johnson</td>
+        <td>94</td>
+      </tr>
+      <!-- Add more rows as needed -->
+    </tbody>
+  </table>
+
+  <p id="searchResult"></p>
+
+  <script>
+    function searchTable() {
+      var input, filter, table, tr, td, i, txtValue, found;
+      input = document.getElementById("searchInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+      found = false;
+
+      for (i = 1; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[1]; // Change index to match the column you want to search
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.backgroundColor = "#f2f2f2";
+            document.getElementById("searchResult").innerText = "Result found: " + txtValue;
+            found = true;
+          } else {
+            tr[i].style.backgroundColor = "";
+          }
+        }
+      }
+
+      if (!found) {
+        document.getElementById("searchResult").innerText = "No result found.";
+      }
+    }
+  </script>
+
+</body>
+</html>

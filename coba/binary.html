@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Binary Search Table</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+    table {
+      width: 60%;
+      border-collapse: collapse;
+      margin: 20px auto;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+    button {
+      font-size: 16px;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Binary Search Table</h2>
+
+  <label for="searchInput">Search:</label>
+  <input type="text" id="searchInput">
+  <button onclick="searchTable()">Search</button>
+  <!-- <button class="btnCari">Search</button> -->
+
+  <table id="myTable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Alice</td>
+        <td>90</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Bob</td>
+        <td>85</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Charlie</td>
+        <td>78</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Dave</td>
+        <td>92</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Eve</td>
+        <td>88</td>
+      </tr>
+      <!-- Add more rows as needed -->
+    </tbody>
+  </table>
+
+  <p id="searchResult"></p>
+
+  <script>
+    // const btnCari = document.querySelector('.btnCari');
+
+    // btnCari.addEventListener("click", searchTable);
+
+    function searchTable() {
+      var input, filter, table, tr, td, i, txtValue, low, high, mid, target;
+      input = document.getElementById("searchInput");
+      filter = input.value.toUpperCase();
+      console.log(filter);
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+      low = 0;
+      high = tr.length;
+      target = filter;
+
+      console.log("ok");
+      
+      while (low <= high) {
+        mid = Math.floor((low + high) / 2);
+        console.log("low = ", low, ", high = ", high, ", mid = ", mid);
+        td = tr[mid].getElementsByTagName("td")[1]; // Change index to match the column you want to search
+        console.log(td.innerText);
+        // txtValue = td.textContent || td.innerText;
+        txtValue = td.innerText;
+
+        if (txtValue.toUpperCase() === target) {
+          tr[mid].style.backgroundColor = "#f2f2f2";
+          document.getElementById("searchResult").innerText = "Result found: " + txtValue;
+          return;
+        } else if (txtValue.toUpperCase() < target) {
+          low = mid + 1;
+          console.log("increment ok");
+        } else {
+          high = mid - 1;
+          console.log("decrement ok");
+        }
+      }
+
+      for (i = 1; i < tr.length; i++) {
+        tr[i].style.backgroundColor = "";
+      }
+
+      document.getElementById("searchResult").innerText = "No result found.";
+    }
+  </script>
+
+</body>
+</html>

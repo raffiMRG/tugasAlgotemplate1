@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luas Segitiga dan Persegi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        input {
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Kalkulator Luas Segitiga dan Persegi</h2>
+
+<label for="alas">Alas Segitiga:</label>
+<input type="number" id="alas" placeholder="Masukkan alas segitiga">
+
+<label for="tinggi">Tinggi Segitiga:</label>
+<input type="number" id="tinggi" placeholder="Masukkan tinggi segitiga">
+
+<button onclick="hitungLuasSegitiga()">Hitung Luas Segitiga</button>
+
+<label for="sisi">Sisi Persegi:</label>
+<input type="number" id="sisi" placeholder="Masukkan sisi persegi">
+
+<button onclick="hitungLuasPersegi()">Hitung Luas Persegi</button>
+
+<div id="result"></div>
+<img src="" alt="Gambar" id="gambar">
+
+<script>
+    function hitungLuasSegitiga() {
+        var alas = parseFloat(document.getElementById("alas").value);
+        var tinggi = parseFloat(document.getElementById("tinggi").value);
+
+        if (!isNaN(alas) && !isNaN(tinggi)) {
+            var luas = 0.5 * alas * tinggi;
+            displayResult("Luas Segitiga: " + luas.toFixed(2) + " satuan luas");
+            displayImage("triangle.png", "Gambar Segitiga");
+        } else {
+            displayResult("Masukkan alas dan tinggi segitiga yang valid.");
+        }
+    }
+
+    function hitungLuasPersegi() {
+        var sisi = parseFloat(document.getElementById("sisi").value);
+
+        if (!isNaN(sisi)) {
+            var luas = sisi * sisi;
+            displayResult("Luas Persegi: " + luas.toFixed(2) + " satuan luas");
+            displayImage("square.png", "Gambar Persegi");
+        } else {
+            displayResult("Masukkan sisi persegi yang valid.");
+        }
+    }
+
+    function displayResult(text) {
+        document.getElementById("result").innerHTML = text;
+    }
+
+    function displayImage(src, alt) {
+        var imgElement = document.getElementById("gambar");
+        imgElement.src = src;
+        imgElement.alt = alt;
+    }
+</script>
+
+</body>
+</html>

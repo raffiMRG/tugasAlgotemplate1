@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shell Sort Algorithm</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Shell Sort Algorithm</h2>
+
+<button onclick="shellSort()">Sort</button>
+
+<table id="sortableTable">
+    <tr>
+        <th>Index</th>
+        <th>Value</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>45</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>12</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>89</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>34</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>67</td>
+    </tr>
+</table>
+
+<script>
+    function shellSort() {
+        var table, rows, switching, i, x, y, shouldSwitch;
+        table = document.getElementById("sortableTable");
+        switching = true;
+
+        while (switching) {
+            switching = false;
+            rows = table.rows;
+
+            for (i = 1; i < (rows.length - 1); i++) {
+                shouldSwitch = false;
+
+                x = rows[i].getElementsByTagName("td")[1];
+                y = rows[i + 1].getElementsByTagName("td")[1];
+
+                if (parseInt(x.innerHTML) > parseInt(y.innerHTML)) {
+                    shouldSwitch = true;
+                    break;
+                }
+            }
+
+            if (shouldSwitch) {
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

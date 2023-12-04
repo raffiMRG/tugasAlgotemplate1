@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Merriweather:ital,wght@1,900&family=Montserrat:ital,wght@0,900;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="homeStyle.css">
+</head>
+<body>
+    <h1 id="header" style="text-align: center; background-color: #111; color: white; margin: 0; padding: 0;">
+        <a href="#" id="head">ALGORITMA DAN PEMROGRAMAN</a>
+    </h1>
+
+    <div id="sidebar">
+        <a href="#" id="kalkulator">KALKULATOR</a>
+        <a href="#" id="binary">BINARY</a>
+        <a href="#" id="buble">BUBLE SORT</a>
+        <a href="#" id="sequential">SEQUENTIAL SORT</a>
+        <a href="#" id="shell">SHELL SORT</a>
+        <!-- Tambahkan menu sesuai kebutuhan -->
+    </div>
+
+    <div id="menu">
+        <div id="menu-btn" onclick="toggleSidebar()">
+            <!-- <a onclick="toogleMenu()" id="hamburger"> -->
+            <a id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+        </div>
+        <!-- Konten halaman utama -->
+    </div>
+    <div class="container">
+        <div class="content">
+            <div class="hallo">
+                <h1>hallo selamat datang</h1>
+            </div>
+        </div>
+    </div>
+    <script src="/ajax/shell/shell.js"></script>
+    <script src="/ajax/sequential/sequential.js"></script>
+    <script src="/ajax/binary/binary.js"></script>
+    <script src="/ajax/buble/buble.js"></script>
+    <script src="/ajax/kalkulator/kalkulator.js"></script>
+    <script src="jquery-3.6.3.min.js"></script>
+    <script src="homeJs.js"></script>
+   
+</body>
+</html>
